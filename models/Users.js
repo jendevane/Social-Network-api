@@ -4,7 +4,7 @@ const { Schema, model } = require('mongoose');
 
 const UserSchema = new Schema(
     {
-        username: {
+        userName: {
             type: String,
             Unique: true,
             Required: true,
@@ -22,7 +22,7 @@ const UserSchema = new Schema(
         thoughts: [
             {
                 type:Schema.Types.ObjectId,
-                ref:'Thought'
+                ref:'Thoughts'
             }
         ],
         friends: [
