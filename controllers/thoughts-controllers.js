@@ -96,5 +96,6 @@ const thoughtsController = {
             .then(dbReactionData => res.json(dbReactionData))
             .catch(err => res.json(err));
     },
-},
+};
 
+module.exports = thoughtsController;
