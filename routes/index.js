@@ -3,7 +3,7 @@ const thoughts = require('./api/thoughts-routes');
 const users = require('./api/users-routes');
 
 
-router.use('/Thoughts', thoughts);
-router.use('/User', users);
+router.use('/thoughts', thoughts);
+router.use('/users', users);
 
 module.exports = router;

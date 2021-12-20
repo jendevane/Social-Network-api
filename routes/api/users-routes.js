@@ -14,7 +14,10 @@ const {
 router
   .route('/')
   .get(getAllUsers)
-  .post(createUser)
+  .post(createUser);
+
+router
+  .route('/:userId')
   .get(getUserById)
   .put(updateUser)
   .delete(deleteUser);
