@@ -23,6 +23,6 @@ const reactionSchema = new Schema({
     id: false
 });
 
-const Reaction = model('Reaction', reactionSchema);
+const reaction = model('reaction', reactionSchema);
 
 module.exports = reactionSchema;
