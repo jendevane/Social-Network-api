@@ -23,8 +23,8 @@ const thoughtSchema = new Schema({
 },
 {
     toJSON: {
-        virtuals: false,
-    
+        virtuals: true,
+        getters: true
     },
     id: false
 });
