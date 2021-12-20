@@ -1,4 +1,4 @@
-const { Thoughts,} = require('../models');
+const { Thoughts, User} = require('../models');
 
 const thoughtsController = {
     getAllThoughts(req, res) {
@@ -48,10 +48,14 @@ const thoughtsController = {
               res.status(404).json({ message: "No user found with this id"});
               return;
             }
-            res.json(dbUserData);
+            res.json();
           })
-          .catch((err) => res.json(err));
+            .catch((err) => {
+              console.log(err)
+              res.status(400).json(err)
+          });
       },
+
     //update thoughts by Id
     updateThoughts({ params, body }, res) {
         Thoughts.findOneAndUpdate({ _id: params.thoughtId }, body, { new: true, runValidators: true })

@@ -1,4 +1,4 @@
-const {User } = require('../models');
+const {User,Thoughts } = require('../models');
 const userController = {
     getAllUsers(req, res) {
         User.find({})
@@ -62,6 +62,10 @@ const userController = {
                     res.status(404).json({ message: 'No User found with this id!' });
                     return;
                 }
+                dbUserData.thoughts.forEach(async thought => {
+                    await Thoughts.findOneAndDelete({ _id: thought._id });
+                });
+    
                 res.json(dbUserData);
             })
             .catch(err => res.status(400).json(err));
