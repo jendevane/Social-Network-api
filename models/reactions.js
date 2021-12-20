@@ -1,5 +1,5 @@
 const { Schema, Types } = require('mongoose');
-
+const {format} = require("date-fns");
 
 const reactionSchema = new Schema({
     reactionId: {
@@ -11,14 +11,15 @@ const reactionSchema = new Schema({
         required: true,
         maxLength: 280
     },
-    userName: {
+    username: {
         type: String,
         required: true
     },
     createdAt: {
         type: Date,
         default: Date.now,
-        get: createdAtVal => dateFormat(createdAtVal)
+        get: createdAtVal => format(createdAtVal, "MMM do, yyyy 'at' hh:mm aa")
+
     },
 
     });

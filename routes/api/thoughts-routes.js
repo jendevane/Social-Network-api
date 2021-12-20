@@ -12,7 +12,7 @@ const {
   } = require('../../controllers/thoughts-controllers');
 
 router
-  .route('/:id')
+  .route('/:thoughtId')
   .get(getThoughtById)
   .put(updateThoughts)
   .delete(deleteThoughts);
