@@ -1,5 +1,5 @@
 # Social-Network-api
-# E-commerce Back End 
+
 # About
 This is a social network api that will allow you to add/remove friends. update, remove check by id, find all users. edit, delete and create thoughts. and create and delete reactions. it also has the bonus working in as well.
 # Usage
