@@ -1,31 +1,21 @@
 const { Schema, model } = require('mongoose');
-// const dateFormat = require('../utils/dateFormat');
+
 
 
 const UserSchema = new Schema(
     {
-        firstName: {
+        username: {
             type: String,
-            required: 'Please provide a user name!',
-            trim: true,
-        
+            Unique: true,
+            Required: true,
+            Trimmed: true,
+
         },
-        lastName: {
-            type: String,
-            required: 'Please provide a user name!',
-            trim: true,
-        },
-        password: {
-            type: String,
-            trim: true,
-            required: 'Password is Required',
-            validate: [({ length }) => length >= 6, 'Password should be longer.']
-        },
+  
         email: {
             type: String,
             unique: true,
             required: true,
-            trim: true,
             match: [/.+@.+\..+/, 'Please enter a valid e-mail address']
         },
         
@@ -41,13 +31,6 @@ const UserSchema = new Schema(
                 ref: 'User'
             }
         ],    
-    
-    
-        userCreated: {
-        type: Date,
-        default: Date.now
-        
-      }
     },   
     {
         toJSON: {
@@ -58,10 +41,6 @@ const UserSchema = new Schema(
         id: false
     }
 );
-
-UserSchema.virtual('username').get(function() {
-    return this.email.slice(0, this.email.indexOf('@'));
-  });
 
 UserSchema.virtual('friendCount').get(function() {
     return this.friends.length

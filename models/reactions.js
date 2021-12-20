@@ -15,14 +15,17 @@ const reactionSchema = new Schema({
         type: String,
         required: true
     },
-},
-{
+    createdAt: {
+        type: Date,
+        default: Date.now,
+        get: createdAtVal => dateFormat(createdAtVal)
+    },
     toJSON: {
         getters: true
     },
     id: false
 });
 
-const reaction = model('reaction', reactionSchema);
+
 
 module.exports = reactionSchema;
